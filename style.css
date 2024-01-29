@@ -1,0 +1,168 @@
+:root {
+  --primary-color: #30cfd0;
+  --secondary-color: #c43ad696;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--primary-color);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bubbleWrapper {
+  height: 90vh;
+  width: 100vw;
+}
+
+#container {
+  height: 10vh;
+  width: 100vw;
+}
+
+.bubble {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 30% 107%,
+    var(--primary-color) 0%,
+    var(--primary-color) 5%,
+    var(--secondary-color) 45%,
+    var(--secondary-color) 60%,
+    #285aeb 90%
+  );
+  filter: hue-rotate(180deg) brightness(150%) contrast(200%);
+  animation: move 1s ease-in-out;
+  animation-iteration-count: 1;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+@keyframes move {
+  0% {
+    bottom: -5%;
+    opacity: 0;
+  }
+  100% {
+    bottom: 95%;
+    opacity: 1;
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+  padding: 15px 0;
+  background-color: rgb(218, 218, 218);
+}
+
+li {
+  list-style: none;
+}
+
+#container ul {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fa-heart {
+  font-size: 25px;
+  color: green;
+}
+
+#scoreCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Roboto", sans-serif;
+  border: 3px solid var(--primary-color);
+  padding: 10px;
+}
+
+#scoreCard div {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+#scoreCard div span {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+#gameBtn {
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px gray, -2px -2px 2px gray;
+  transition: all 0.3s ease-in-out;
+  font-family: "Roboto", sans-serif;
+}
+
+#gameBtn:hover {
+  background-color: var(--secondary-color);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.gameOver {
+  font-weight: 800;
+  font-size: 35px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: fade 2s ease-in-out;
+  animation-iteration-count: 1;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
